@@ -1,6 +1,8 @@
  # 5278077_Janhavi-Shingote
 
 ![Agile Quiz](https://github.com/JanhaviShingote10/5278077_Janhavi-Shingote/raw/main/SDLC/AgileQuiz.png)
+### 📄 Certificate: Git Training
+[Click here to view certificate](https://github.com/JanhaviShingote10/5278077_Janhavi-Shingote/blob/main/SDLC/5278077_Janhavi%20Shingote.pdf)
 
 ![Linux Practice 1](https://github.com/JanhaviShingote10/5278077_Janhavi-Shingote/raw/main/SDLC/Linuxpractise1.png)
 ![Linux Practice 2](https://github.com/JanhaviShingote10/5278077_Janhavi-Shingote/raw/main/SDLC/Linuxpractise2.png)
