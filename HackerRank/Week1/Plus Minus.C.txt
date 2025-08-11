@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int total;
+    scanf("%d", &total);
+
+    int data[total];
+    for (int idx = 0; idx < total; idx++) {
+        scanf("%d", &data[idx]);
+    }
+
+    int positive = 0, negative = 0, zeros = 0;
+
+    for (int idx = 0; idx < total; idx++) {
+        if (data[idx] > 0) {
+            positive++;
+        } else if (data[idx] < 0) {
+            negative++;
+        } else {
+            zeros++;
+        }
+    }
+
+    double posRatio = (double)positive / total;
+    double negRatio = (double)negative / total;
+    double zeroRatio = (double)zeros / total;
+
+    printf("%.6lf\n%.6lf\n%.6lf\n", posRatio, negRatio, zeroRatio);
+
+    return 0;
+}
