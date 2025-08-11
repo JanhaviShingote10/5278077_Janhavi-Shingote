@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    long nums[5];
+    long total = 0;
+    
+    // Reading 5 integers and calculating total sum
+    for (int i = 0; i < 5; i++) {
+        scanf("%ld", &nums[i]);
+        total += nums[i];
+    }
+
+    long minSum = total - nums[0];
+    long maxSum = total - nums[0];
+
+    // Check each "sum of 4 numbers" by excluding one number
+    for (int i = 0; i < 5; i++) {
+        long currentSum = total - nums[i];
+        
+        if (currentSum < minSum) {
+            minSum = currentSum;
+        }
+        if (currentSum > maxSum) {
+            maxSum = currentSum;
+        }
+    }
+
+    printf("%ld %ld\n", minSum, maxSum);
+
+    return 0;
+}

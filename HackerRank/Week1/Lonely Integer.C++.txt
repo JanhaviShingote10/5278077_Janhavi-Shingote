@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int lonelyinteger(int arr[], int n) {
+    int result = 0;
+    for (int i = 0; i < n; i++) {
+        result ^= arr[i];  // XOR cancels out pairs, leaving the lonely number
+    }
+    return result;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int numbers[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &numbers[i]);
+    }
+
+    printf("%d\n", lonelyinteger(numbers, n));
+    return 0;
+}

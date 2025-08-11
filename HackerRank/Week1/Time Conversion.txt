@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    char time12[11]; // Format: HH:MM:SSAM or HH:MM:SSPM
+    scanf("%s", time12);
+
+    int hour = (time12[0] - '0') * 10 + (time12[1] - '0'); // Convert first two chars to int
+
+    // Check AM or PM
+    if (time12[8] == 'A') {
+        if (hour == 12) hour = 0; // Midnight case
+    } else { // PM
+        if (hour != 12) hour += 12; // Afternoon case
+    }
+
+    // Print hour with leading zero
+    printf("%02d", hour);
+
+    // Print the rest of the time (MM:SS)
+    for (int i = 2; i < 8; i++) {
+        printf("%c", time12[i]);
+    }
+    printf("\n");
+
+    return 0;
+}

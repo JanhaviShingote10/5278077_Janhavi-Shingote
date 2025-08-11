@@ -1,0 +1,39 @@
+include <stdio.h>
+
+int birthday(int arr[], int length, int day, int month) {
+    int countWays = 0;
+
+    // Traverse all possible starting positions
+    for (int start = 0; start <= length - month; start++) {
+        int sum = 0;
+
+        // Calculate sum for the current segment of size 'month'
+        for (int i = 0; i < month; i++) {
+            sum += arr[start + i];
+        }
+
+        // Check if the segment matches the desired sum
+        if (sum == day) {
+            countWays++;
+        }
+    }
+    return countWays;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int chocolate[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &chocolate[i]);
+    }
+
+    int d, m;
+    scanf("%d %d", &d, &m);
+
+    int result = birthday(chocolate, n, d, m);
+    printf("%d\n", result);
+
+    return 0;
+}

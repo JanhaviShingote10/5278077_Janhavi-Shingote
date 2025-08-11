@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+#define ALPHABET 26
+
+const char* pangrams(const char *s) {
+    int seen[ALPHABET] = {0};
+    int count = 0;
+
+    for (int i = 0; s[i] != '\0'; i++) {
+        char ch = tolower((unsigned char)s[i]);
+        if (ch >= 'a' && ch <= 'z') {
+            int idx = ch - 'a';
+            if (!seen[idx]) {
+                seen[idx] = 1;
+                count++;
+                if (count == ALPHABET) {
+                    return "pangram";
+                }
+            }
+        }
+    }
+    return "not pangram";
+}
+
+int main() {
+    char sentence[1005];
+    fgets(sentence, sizeof(sentence), stdin);
+
+    // Remove trailing newline if present
+    size_t len = strlen(sentence);
+    if (len > 0 && sentence[len-1] == '\n') {
+        sentence[len-1] = '\0';
+    }
+
+    printf("%s\n", pangrams(sentence));
+    return 0;
+}

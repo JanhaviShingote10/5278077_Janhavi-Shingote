@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int diagonalDifference(int **matrix, int size) {
+    int mainDiagSum = 0, secDiagSum = 0;
+
+    for (int i = 0; i < size; i++) {
+        mainDiagSum += matrix[i][i];                 // primary diagonal
+        secDiagSum  += matrix[i][size - 1 - i];      // secondary diagonal
+    }
+
+    int diff = mainDiagSum - secDiagSum;
+    return diff < 0 ? -diff : diff; // absolute value
+}
+
+int main(void) {
+    int n;
+    if (scanf("%d", &n) != 1) return 0;
+
+    /* allocate rows */
+    int **arr = (int **)malloc(n * sizeof(int *));
+    if (!arr) return 1;
+
+    for (int i = 0; i < n; i++) {
+        arr[i] = (int *)malloc(n * sizeof(int));
+        if (!arr[i]) return 1;
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    int result = diagonalDifference(arr, n);
+    printf("%d\n", result);
+
+    for (int i = 0; i < n; i++) free(arr[i]);
+    free(arr);
+    return 0;
+}
